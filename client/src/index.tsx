@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import { Listings } from './sections';
 
 render(
-  <div>
-    Hello World!
-  </div>,
+  <Listings />,
   document.getElementById('root')
 );
 
