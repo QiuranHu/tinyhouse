@@ -13,3 +13,13 @@ interface Listing {
 export interface ListingsData {
   listings: Listing[];
 }
+
+// Data returned from GraphQL mutation, this interface is corresponding to the deleteListing field.
+export interface DeleteListingData {
+  deleteListing: Listing;
+}
+
+// The argument passed to deleteListing mutation.
+export interface DeleteListingVariables {
+  id: string;
+}
