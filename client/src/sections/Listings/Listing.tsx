@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { server } from "../../lib/api";
 import {
   DeleteListingData,
@@ -36,6 +36,9 @@ const DELETE_LISTING = `
 
 export const Listings = ({ title }: Props) => {
   const [listings, setListings] = useState<Listing[] | null>(null);
+  useEffect(() => {
+    console.log("Effect has run!");
+  }, [listings]);
   const fetchListings = async () => {
     const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
     setListings(data.listings);
