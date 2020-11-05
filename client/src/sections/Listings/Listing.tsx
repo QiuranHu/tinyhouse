@@ -37,8 +37,8 @@ const DELETE_LISTING = `
 export const Listings = ({ title }: Props) => {
   const [listings, setListings] = useState<Listing[] | null>(null);
   useEffect(() => {
-    console.log("Effect has run!");
-  }, [listings]);
+    fetchListings();
+  }, []);
   const fetchListings = async () => {
     const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
     setListings(data.listings);
