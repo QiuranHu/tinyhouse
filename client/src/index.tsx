@@ -1,10 +1,19 @@
 import React from "react";
 import { render } from "react-dom";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/react-hooks";
 import reportWebVitals from "./reportWebVitals";
 import { Listings } from "./sections";
 
+const client = new ApolloClient({
+  uri: "/api",
+  cache: new InMemoryCache(),
+});
+
 render(
-  <Listings title="Tinyhouse Listings" />,
+  <ApolloProvider client={client}>
+    <Listings title="Tinyhouse Listings" />
+  </ApolloProvider>,
   document.getElementById("root")
 );
 
