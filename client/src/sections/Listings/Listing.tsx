@@ -1,11 +1,8 @@
 import React from "react";
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import {
-  DeleteListingData,
-  DeleteListingVariables,
-  ListingsData,
-} from "./types";
+import {Listings as ListingsData} from './__generated__/Listings';
+import {DeleteListing as DeleteListingData, DeleteListingVariables} from './__generated__/DeleteListing';
 
 interface Props {
   title: string;
@@ -43,7 +40,7 @@ export const Listings = ({ title }: Props) => {
   const handleDeleteListing = async (id: string) => {
     // Only when the request funciton is called, we will pass in the variables
     // necessary for the mutation.
-    await deleteListing({ variables: {id} });
+    await deleteListing({ variables: { id } });
     refetch();
   };
 
