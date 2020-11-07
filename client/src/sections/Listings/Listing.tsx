@@ -35,7 +35,10 @@ const DELETE_LISTING = `
 
 export const Listings = ({ title }: Props) => {
   const { data, refetch, error, loading } = useQuery<ListingsData>(LISTINGS);
-  const [deleteListing, { loading: deleteListingLoading, error: deleteListingError }] = useMutation<DeleteListingData, DeleteListingVariables>(DELETE_LISTING);
+  const [
+    deleteListing,
+    { loading: deleteListingLoading, error: deleteListingError },
+  ] = useMutation<DeleteListingData, DeleteListingVariables>(DELETE_LISTING);
   const handleDeleteListing = async (id: string) => {
     // Only when the request funciton is called, we will pass in the variables
     // necessary for the mutation.
@@ -49,7 +52,9 @@ export const Listings = ({ title }: Props) => {
       {listings.map((listing) => (
         <li key={listing.id}>
           {listing.title}{" "}
-          <button onClick={() => handleDeleteListing(listing.id)}>Delete</button>
+          <button onClick={() => handleDeleteListing(listing.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
