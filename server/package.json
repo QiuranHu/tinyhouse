@@ -1,5 +1,5 @@
 {
-  "name": "tiny-house-v1-server",
+  "name": "tinyhouse-server",
   "version": "0.1.0",
   "dependencies": {
     "apollo-server-express": "^2.18.2",
