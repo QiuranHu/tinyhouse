@@ -39,6 +39,7 @@ export interface Listing {
   bookings: ObjectId[];
   bookingsIndex: BookingsIndex;
   price: number;
+  numOfGuests: number;
 }
 
 export interface User {
@@ -51,7 +52,6 @@ export interface User {
   income: number;
   bookings: ObjectId[];
   listings: ObjectId[];
-  numOfGuests: number;
 }
 
 export interface Database {
