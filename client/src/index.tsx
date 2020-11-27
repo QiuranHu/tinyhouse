@@ -12,9 +12,10 @@ import {
   NotFound,
   User,
   Login,
+  AppHeader,
 } from "./sections";
 import "./styles/index.css";
-import { Layout } from "antd";
+import { Layout, Affix } from "antd";
 import { Viewer } from "./lib/types";
 
 const client = new ApolloClient({
@@ -36,6 +37,9 @@ const App = () => {
   return (
     <Router>
       <Layout id="app">
+        <Affix offsetTop={0} className="app__affix-header">
+          <AppHeader viewer={viewer} setViewer={setViewer}/>
+        </Affix>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/host" component={Host} />
