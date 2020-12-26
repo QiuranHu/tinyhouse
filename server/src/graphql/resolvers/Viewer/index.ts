@@ -95,12 +95,22 @@ const logInViaCookie = async (
   res: Response
 ): Promise<User | undefined> => {
   const updateRes = await db.users.findOneAndUpdate(
-    {
+    // This is the filter object whierein the findOneAndUpdate
+    // method, Mongo will select the first document that matches
+    // this parameter. In this instance, we want to find the user 
+    // document where the document _id field matches the viewer
+    // field in cookie.
+    { 
       _id: req.signedCookies.viewer,
     },
+    // In the second argument, we'll use the $set operator to 
+    // specify how we want to update the selected document.
     {
       $set: { token },
     },
+    // In the third argument, we'll specify returnOriginal to false,
+    // which just means we want to return the updated document
+    // (not the original document).
     {
       returnOriginal: false,
     }
